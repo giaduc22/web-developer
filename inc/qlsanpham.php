@@ -21,48 +21,56 @@ $start = $paging->rowStart($limit);
 $curpage = ($start / $limit) + 1;
 
 ?>
-<table width="725" border="1" background="">
-	<h3 class="tbltitle">Quản lý sản phẩm</h3>
-	<input name="Smsua" type="button"
-		onclick="window.location='?action=themsanpham';"
-		class="button-red muatiep" value="Thêm mới sản phẩm" />
-	<tr>
-		<td width="65"><div align="left">Mã SP</div></td>
-		<td width="100"><div align="left">Tên sản phẩm</div></td>
-		<td width="80"><div align="left">Giá bán</div></td>
-		<td width="80"><div align="left">Phân loại</div></td>
-		<td width="80"><div align="left">Trọng lương</div></td>
-		<td width="80"><div align="left">Hình ảnh</div></td>
-		<td width="80"><div align="left">Chi tiết</div></td>
-	</tr>
-<?php
-$result = mysql_query("select * from SanPham order by mahang desc limit " . $start . "," . $limit);
-while ($rows = mysql_fetch_array($result)) {
+
+
+
+<div class="table-responsive">
+  <h3>Quản lý sản phẩm</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Mã sản phẩm</th>
+        <th>Tên sản phẩm</th>
+        <th>Giá</th>
+        <th>Phân loại</th>
+        <th>Trọng lượng</th>
+        <th>Hình ảnh</th>
+        <th>Sửa</th>
+        <th>Xóa</th>
+      </tr>
+    </thead>
+
+    <?php
+    $result = mysql_query("select * from SanPham order by mahang desc limit " . $start . "," . $limit);
+    while ($rows = mysql_fetch_array($result)) {
+        ?>
+      <tr>
+    		<td><?php echo $rows['mahang'];?></td>
+    		<td><a href="?action=chitiet&id=<?php echo $rows['mahang']; ?>"><?php echo $rows['tenhang']; ?></a></td>
+    		<td><?php echo $rows['giatien'];?></td>
+    		<td><?php echo $rows['maloai'];?></td>
+    		<td><?php echo $rows['sogr1sp'];?></td>
+    		<td>
+          <img width="120px" height="auto"
+    					src="images/sanpham/<?php echo $rows['hinhanh'];?>" />
+        </td>
+    		<td><a href="?action=suasanpham&id=<?php echo "$rows[0]";?>">Sửa</a></td>
+        <td><a href="exexoasp.php?id=<?php echo "$rows[0]";?>">Xóa</a></td>
+    	</tr>
+     <?php
+    }
     ?>
-  <tr>
-		<td><div align="left"><?php echo $rows['mahang'];?></div></td>
-		<td><div align="left">
-				<a href="?action=chitiet&id=<?php echo $rows['mahang']; ?>"><?php echo $rows['tenhang']; ?></a>
-			</div></td>
-		<td><div align="left"><?php echo $rows['giatien'];?></div></td>
-		<td><div align="left"><?php echo $rows['maloai'];?></div></td>
-		<td><div align="left"><?php echo $rows['sogr1sp'];?></div></td>
-		<td><div align="left">
-				<img width="120px" height="auto"
-					src="images/sanpham/<?php echo $rows['hinhanh'];?>" />
-			</div></td>
-		<td><div align="left">
-				<a href="?action=suasanpham&id=<?php echo "$rows[0]";?>">Sửa</a>&nbsp;&nbsp;
-				<a href="exexoasp.php?id=<?php echo "$rows[0]";?>">Xóa</a>
-			</div></td>
-	</tr>
- <?php
-}
-?>
- <tr>
-		<td colspan="7"> <?php
-echo $paging->pagesList($curpage);
-?>
-	 </td>
-	</tr>
-</table>
+
+  </table>
+  <button class="btn btn-default pull-right" name="Smsua" onclick="window.location='?action=themsanpham';">Thêm sản phẩm</button>
+</div>
+
+<div class="row">
+  <div class="col-md-9 col-md-offset-3">
+    <ul class="pagination pagination-sm">
+        <?php
+        echo $paging->pagesList($curpage);
+        ?>
+    </ul>
+  </div>
+</div>

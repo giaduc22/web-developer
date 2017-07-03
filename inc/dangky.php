@@ -1,18 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Đăng ký</title>
-<style type="text/css">
-<!--
-.style1 {
-	color: #FF0000
-}
--->
-</style>
-</head>
 
-<body>
+
 <?php
 if (isset($_POST['Submit'])) {
     if (strlen($_POST['txtname']) > 0) {
@@ -25,7 +12,7 @@ if (isset($_POST['Submit'])) {
 			</script>
 		<?php
     }
-    
+
     if (strlen($_POST['txtuser']) > 0) {
         $username = true;
     } else {
@@ -67,7 +54,7 @@ if (isset($_POST['Submit'])) {
             $ngay = $_POST['selectngay'];
             $q = $_POST['selectque'];
             $dt = $_POST['txtphone'];
-            $sql1 = "insert into KhachHang(hoten,ngaysinh,quequan,dienthoai,username,password) 
+            $sql1 = "insert into KhachHang(hoten,ngaysinh,quequan,dienthoai,username,password)
 						values('$n',concat('$nam','-','$thang','-','$ngay'),'$q','$dt','$u',MD5('$p'))";
             $result1 = mysql_query($sql1);
             if (mysql_affected_rows() == 1) {
@@ -95,6 +82,62 @@ if (isset($_POST['Submit'])) {
     }
 }
 ?>
+
+
+
+<fieldset>
+    <div id="legend">
+      <legend class="">Đăng ký</legend>
+    </div>
+
+		<div class="control-group">
+      <!-- Fullname -->
+      <label class="control-label"  for="fulname">Họ và tên</label>
+      <div class="controls">
+        <input type="text" id="fulname" name="fulname" placeholder="" class="input-xlarge">
+        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+        <p class="help-block">Please provide your E-mail</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+        <p class="help-block">Password should be at least 4 characters</p>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Đăng ký</button>
+      </div>
+    </div>
+  </fieldset>
+
+
+
+
 <h3 class="tbltitle">Đăng kí</h3>
 	<form id="form1" name="form1" method="post" action="">
 		<div align="center">
@@ -183,8 +226,3 @@ if (isset($_POST['Submit'])) {
 			</table>
 		</div>
 	</form>
-</body>
-
-
-</html>
-

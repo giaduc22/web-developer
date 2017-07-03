@@ -1,54 +1,51 @@
-<div id="menu">
-	<ul class="main">
-		<li><a href="index.php"><strong>Trang chủ</strong></a></li>
-	<?php
-if (! isset($_SESSION['username'])) {
-    ?>
-    <li><div align="center">
-				<a href="?action=dangnhap"><strong>Đăng nhập</strong></a></li>
-		<li><div align="center">
-				<a href="?action=dangky"> <strong>Đăng ký</strong>
-				</a></li>
-    <?php
-} else {
-    ?>
-	 <li><div align="center">
-				<a href="?action=exit"><strong>Thoát</strong></a></li>
-	 <?php
-    if (! isset($_SESSION['loginadmin'])) {
-        ?>
-		 <li><div align="center">
-				<a href="gio-hang.html"><strong>Giỏ hàng</strong> - <i><?php if(isset($_SESSION["hang"])){echo count($_SESSION["hang"]);}?></i>
-					SP</a></li>
-		<li><div align="center">
-				<a href="don-hang.html"><strong>Đơn hàng</strong></a></li>
-		 <?php
-    }
-    ?>
-	
-	<?php
-}
-?>
-	<?php
-if (isset($_SESSION['loginadmin'])) {
-    ?>
-	 <li><div align="center">
-				<a href="?action=qldanhmuc"> <strong>Danh Mục</strong>
-				</a></li>
-		<li><div align="center">
-				<a href="?action=qlsanpham"> <strong>Sản Phẩm</strong>
-				</a></li>
-  <?php
-}
-?>
-	 <li><div align="center">
-				<a href="?action=contact"> <strong>Liên hệ</strong>
-				</a></li>
-	</ul>
-	<form id="formtimkiem" name="form1" method="post" action="index.php">
-		<div align="center">
-			<input type="text" placeholder="Tìm sản phẩm" name="timkiemsanpham" />
-			<input type="submit" name="Submit" value="Tìm kiếm" />
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li><a href="index.php">Trang chủ</a></li>
+
+				<?php
+				if (! isset($_SESSION['loginadmin']) && isset($_SESSION['username'])) {
+				?>
+					<li><a href="gio-hang.html">Giỏ hàng - <i><?php if(isset($_SESSION["hang"])){echo count($_SESSION["hang"]);}?></i>SP</a></li>
+					<li><a href="don-hang.html">Đơn hàng</a></li>
+				<?php
+				}
+				?>
+
+				<?php
+				if (isset($_SESSION['loginadmin'])) {
+				?>
+					<li><a href="?action=qldanhmuc">Danh mục</a></li>
+					<li><a href="?action=qlsanpham">Sản phẩm</a></li>
+				<?php
+				}
+				?>
+					<li><a href="?action=contact">Liên hệ</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<?php
+				if (! isset($_SESSION['username'])) {
+				?>
+					<li><a href="?action=dangky">Đăng ký</a></li>
+					<li><a href="?action=dangnhap"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+				<?php
+				} else {
+				?>
+					<li><a href="?action=exit">Thoát</a></li>
+				<?php
+				}
+				?>
+			</ul>
 		</div>
-	</form>
-</div>
+	</div>
+</nav>

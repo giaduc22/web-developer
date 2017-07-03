@@ -27,47 +27,42 @@ if ($timkiem != "" && mysql_num_rows($result) == 0) {
     return header('Location:index.php');
 }
 ?>
+
+
+
 <form id="form1" name="form1" method="post" action="">
-	<div class="wappper_sanpham">
-		<ul class="product">
-   <?php
-while ($rows = mysql_fetch_array($result)) {
-    // $link="index.php?chitiet=".$rows['mahang']."&alias:".$rows['alias'].".html";
-    // $link="sp-".$rows['alias'].$rows['mahang'].".html";
-    $link = "?action=chitiet&id=" . $rows['mahang'];
-    ?>
-		<li class="box-1 span4"><a href="<?php echo $link;?>"
-				title="<?php echo $rows['tenhang'];?>">
-					<div class="title">
-						<h2 class="head_sp"><?php echo $rows['tenhang'];?></h2>
-					</div>
-			</a>
-				<div class="product thumbnail" style="height: 149px;">
-					<img src="images/sanpham/<?php echo $rows['hinhanh'];?>"
-						alt="<?php echo $rows['tenhang'];?>" width="240px" height="147px">
-					<a href="<?php echo $link;?>"
-						title="<?php echo $rows['tenhang'];?>"> </a>
-				</div>
-				<p class="home-text hidden-xs clear">
-				<?php echo $rows['slogan'];?>
-			</p>
-				<div class="fot-box">
-					<p class="price">
-						<span class="new-price"><?php echo number_format($rows['giatien']);?> đ</span>
-					</p>
-					<a class="button" href="<?php echo $link;?>">Xem chi tiết<i
-						class="fa fa-angle-double-right"></i></a>
-					<div class="clear"></div>
-				</div>
-				<div class="clear"></div></li>
-	   <?php
-}
-?>
-	</ul>
-		<div class="fpage">
-	 <?php
-echo $paging->pagesList($curpage);
-?>
-	 </div>
-	</div>
+  <div class="row">
+    <ul class="list-group">
+      <?php
+      while ($rows = mysql_fetch_array($result)) {
+      $link = "?action=chitiet&id=" . $rows['mahang'];
+      ?>
+      <div class="col-md-4">
+        <li class="list-group-item">
+          <div class="card">
+            <img class="card-img-top" src="images/sanpham/<?php echo $rows['hinhanh'];?>" alt="<?php echo $rows['tenhang'];?>" width="100%" height="100%">
+            <div class="card-block">
+              <h4 class="card-title"><?php echo $rows['tenhang'];?></h4>
+              <p class="card-text"><?php echo number_format($rows['giatien']);?> đ</p>
+              <a href="<?php echo $link;?>" class="btn btn-primary">Xem chi tiết</a>
+            </div>
+          </div>
+        </li>
+      </div>
+      <?php
+      }
+      ?>
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9 col-md-offset-3">
+      <ul class="pagination pagination-sm">
+          <?php
+          echo $paging->pagesList($curpage);
+          ?>
+      </ul>
+    </div>
+  </div>
+
 </form>
