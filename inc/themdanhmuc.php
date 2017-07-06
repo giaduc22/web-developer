@@ -4,26 +4,20 @@
 // header('Location:'.$_SERVER['HTTP_REFERER']);
 // }
 ?>
-<form id="form3" name="form3" method="post" action="exepostdanhmuc.php"
-	enctype="multipart/form-data">
-	<div align="center">
+<form id="form3" name="form3" method="post" action="exepostdanhmuc.php" enctype="multipart/form-data">
+	<div class="table-responsive">
 		<h3 class="tbltitle">Thêm mới Danh Mục</h3>
-		<table width="205" border="1" align="center" background="">
+		<table class="table">
 			<tr>
-				<td width="195">Tên Danh Mục</td>
-				<td><input name="tendanhmuc" type="text" value=""
-					placeholder="Ví dụ: Dưỡng thể" size="50" /></td>
+				<td>Tên Danh Mục</td>
+				<td><input class="form-control" name="tendanhmuc" type="text" value="" placeholder="Ví dụ: Dưỡng thể"/></td>
 			</tr>
 			<tr>
 				<td>Mã Danh Mục</td>
-				<td><input name="maloai" type="text" value=""
+				<td><input class="form-control" name="maloai" type="text" value=""
 					placeholder="Ví dụ: L10" /></td>
 			</tr>
-			<tr>
-				<td><label> <input name="Smsua" class="button-red muatiep"
-						type="submit" value="Thêm Danh Mục" />
-				</label></td>
-			</tr>
 		</table>
+		<button class="btn btn-primary pull-right" name="Smsua" type="submit">Thêm danh mục</button>
 	</div>
 </form>

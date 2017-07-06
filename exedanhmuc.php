@@ -4,7 +4,7 @@ include ("dbconnect.inc");
 $m = $_POST['maloai'];
 $n = $_POST['txtname'];
 
-$result = mysql_query("UPDATE LoaiSanPham SET ten='$n' WHERE maloai='$m'");
+$result = mysql_query("UPDATE loaisanpham SET ten='$n' WHERE maloai='$m'");
 if ($result) {
     $_SESSION['mess'] = "Cập nhật thành công";
     header('Location:' . $_SERVER['HTTP_REFERER']);

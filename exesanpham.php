@@ -25,7 +25,7 @@ if ($h != "") {
     $newname = "home-" . time() . "." . $ext;
     $seth = ",hinhanh='$newname'";
 }
-$sql = "UPDATE SanPham SET tenhang='$n',alias='$alias',giatien='$g',slogan='$slogan',maloai='$ml',sogr1sp='$gr',chitiet='$chitiet' $seth WHERE mahang='$m'";
+$sql = "UPDATE sanpham SET tenhang='$n',alias='$alias',giatien='$g',slogan='$slogan',maloai='$ml',sogr1sp='$gr',chitiet='$chitiet' $seth WHERE mahang='$m'";
 $result = mysql_query($sql);
 if ($result) {
     if ($h != "") {

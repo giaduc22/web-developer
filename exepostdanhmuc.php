@@ -23,13 +23,13 @@ if ($tenhang && $maloai2) {
     $maloai = $_POST['maloai'];
     
     // check ma loaisp
-    $result = mysql_query("select * from LoaiSanPham where maloai='$maloai'");
+    $result = mysql_query("select * from loaisanpham where maloai='$maloai'");
     $rows = @mysql_fetch_array($result);
     if ($rows['maloai'] != "") {
         $_SESSION['mess'] = "Lỗi Mã lọai [" . $maloai . "] đã tồn tại. Vui lòng nhập mã khác";
         return header('Location:' . $_SERVER['HTTP_REFERER']);
     }
-    $sql = "insert into LoaiSanPham(maloai,ten) 
+    $sql = "insert into loaisanpham(maloai,ten) 
 						values('$maloai','$tendanhmuc')";
     $result = mysql_query($sql);
     if ($result == 1) {

@@ -2,7 +2,7 @@
 if (isset($_GET['id'])) {
     include ('dbconnect.inc');
     $mahang = $_GET['id'];
-    $result = mysql_query("delete from SanPham where mahang='$mahang'");
+    $result = mysql_query("delete from sanpham where mahang='$mahang'");
     if ($result) {
         ?>
 <script language="javascript">
