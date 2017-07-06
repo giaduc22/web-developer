@@ -10,7 +10,7 @@ if (! isset($_SESSION['loginadmin'])) {
 
 include ("clspage.php");
 $paging = new Paging();
-$limit = 50;
+$limit = 10;
 // Tổng số mẫu tin
 $paging->findTotal($link, 'sanpham');
 // Tổng số trang
