@@ -1,7 +1,7 @@
 <?php
 // mysql_query("SET NAMES utf8");
 $mahang = isset($_GET['id']) ? $_GET['id'] : "";
-$result = mysql_query("select * from SanPham where mahang='$mahang'");
+$result = mysql_query("select * from sanpham where mahang='$mahang'");
 $rows = @mysql_fetch_array($result);
 if ($rows['mahang'] == "") {
     $_SESSION['mess'] = "Không tìm thấy sản phẩm";

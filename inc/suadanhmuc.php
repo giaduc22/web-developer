@@ -1,7 +1,7 @@
 <?php
 // mysql_query("SET NAMES utf8");
 $maloai = isset($_GET['id']) ? $_GET['id'] : "";
-$result = mysql_query("select * from LoaiSanPham where maloai='$maloai'");
+$result = mysql_query("select * from loaisanpham where maloai='$maloai'");
 $rows = @mysql_fetch_array($result);
 if ($rows['maloai'] == "") {
     $_SESSION['mess'] = "Không tìm thấy danh mục";

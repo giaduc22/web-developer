@@ -26,44 +26,45 @@ $curpage = ($start / $limit) + 1;
 
 
 <div class="table-responsive">
-  <h3>Quản lý danh Mục</h3>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Mã loại</th>
-        <th>Danh mục</th>
-        <th>Sửa</th>
-        <th>Xóa</th>
-      </tr>
-    </thead>
+	<h3>Quản lý danh Mục</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Mã loại</th>
+				<th>Danh mục</th>
+				<th>Sửa</th>
+				<th>Xóa</th>
+			</tr>
+		</thead>
 
     <?php
     $i = 1;
-    $result = mysql_query("select * from LoaiSanPham order by maloai desc limit " . $start . "," . $limit);
+    $result = mysql_query("select * from loaisanpham order by maloai desc limit " . $start . "," . $limit);
     while ($rows = mysql_fetch_array($result)) {
-    ?>
+        ?>
       <tr>
-    		<td><?php echo $i;?></td>
-        <td><?php echo $rows['maloai'];?></td>
-    		<td><a href="?action=danhmuc&id=<?php echo $rows['maloai']; ?>"><?php echo $rows['ten']; ?></a></td>
-    		<td><a href="?action=suadanhmuc&id=<?php echo $rows['maloai'];?>">Sửa</a></td>
-    		<td><a href="exexoadm.php?id=<?php echo $rows['maloai'];?>">Xóa</a></td>
-    	</tr>
+			<td><?php echo $i;?></td>
+			<td><?php echo $rows['maloai'];?></td>
+			<td><a href="?action=danhmuc&id=<?php echo $rows['maloai']; ?>"><?php echo $rows['ten']; ?></a></td>
+			<td><a href="?action=suadanhmuc&id=<?php echo $rows['maloai'];?>">Sửa</a></td>
+			<td><a href="exexoadm.php?id=<?php echo $rows['maloai'];?>">Xóa</a></td>
+		</tr>
      <?php
         $i ++;
     }
     ?>
   </table>
 
-  <button class="btn btn-default pull-right" name="Smsua" onclick="window.location='?action=themdanhmuc';">Thêm danh mục</button>
+	<button class="btn btn-default pull-right" name="Smsua"
+		onclick="window.location='?action=themdanhmuc';">Thêm danh mục</button>
 </div>
 <div class="row">
-  <div class="col-md-9 col-md-offset-3">
-    <ul class="pagination pagination-sm">
+	<div class="col-md-9 col-md-offset-3">
+		<ul class="pagination pagination-sm">
         <?php
         echo $paging->pagesList($curpage);
         ?>
     </ul>
-  </div>
+	</div>
 </div>

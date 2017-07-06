@@ -25,7 +25,7 @@
 				<td>Danh Mục</td>
 				<td><select id="txtml" name="txtml">
 					<?php
-    $results = mysql_query("select * from LoaiSanPham");
+    $results = mysql_query("select * from loaisanpham");
     while ($rowsi = mysql_fetch_assoc(@$results)) {
         
         ?>

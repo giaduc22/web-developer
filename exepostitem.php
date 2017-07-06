@@ -44,7 +44,7 @@ if ($tenhang && $giatien && $kieu) {
         $newname = "home-" . time() . "." . $ext;
     }
     require ("dbconnect.inc");
-    $sql = "insert into SanPham(tenhang,giatien,slogan,maloai,sogr1sp,chitiet,hinhanh,alias) 
+    $sql = "insert into sanpham(tenhang,giatien,slogan,maloai,sogr1sp,chitiet,hinhanh,alias) 
 						values('$t','$g','$slogan','$l','$gr','$chitiet','$newname','$alias')";
     $result = mysql_query($sql);
     if ($result == 1) {
