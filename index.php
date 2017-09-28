@@ -8,32 +8,28 @@ session_start();
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Website bán hàng mỹ phẫm Online Giá Rẻ - Chất Lượng Cao</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Website bán hàng mỹ phẫm Online Giá Rẻ - Chất Lượng Cao</title>
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<!-- Icon -->
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
-
 	<div class="container">
-		<!-- Top Header -->
+		<!-- Header -->
 		<header>
 			<img class="img-responsive" src="images/banner.png" width="100%"
 				height="auto" />
+					    <?php include("header.php");?>
 		</header>
-
-		<!--Header Menu-->
-		<nav>
-	    	<?php include("header.php");?>
-	  	</nav>
 
 
 				<?php
@@ -45,20 +41,20 @@ session_start();
 				href="javascript:void()">X</a> <span><?php echo $_SESSION['mess'];?></span>
 		</div>
 				<?php
-        
+
         unset($_SESSION['mess']);
     }
     ?>
 
 <!--Content -->
-		<div class="row">
+		<section class="row">
 			<div class="col-md-9">
 						<?php include("themain.php");?>
-					</div>
+				</div>
 			<div class="col-md-3">
 						<?php include("theleft.php");?>
 					</div>
-		</div>
+		</section>
 
 		<!--Footer -->
 		<footer class="row">

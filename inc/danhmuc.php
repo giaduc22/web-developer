@@ -52,6 +52,7 @@ if ($timkiem != "" && mysql_num_rows($result) == 0) {
 					</div>
 				</li>
 			</div>
+
       <?php
     }
     ?>
